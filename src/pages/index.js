@@ -20,14 +20,21 @@ const IndexPage = () => {
   //     })
   // }, [])
 
-  const removeDuplicates = () => {
-    JSONData.features.map((incident, index) => {
-      console.log(incident.attributes)
-    })
+  function removeDuplicates(data) {
+    const cleanData = [];
+    return data.filter(item => {
+      const doesItemExist = cleanData.indexOf(item.attributes.ACCNUM);
+      if(doesItemExist === -1) {
+        cleanData.push(item.attributes.ACCNUM);
+        return item;
+      }
+    });
   }
 
   useEffect(() => {
-    removeDuplicates()
+    const deDupe = removeDuplicates(JSONData.features);
+    setIncidentData(deDupe);
+    console.log('Fired');
   }, [])
 
   return (
