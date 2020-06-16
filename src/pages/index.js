@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AccidentList from "../components/AccidentList"
-import JSONData from "../../content/test-data.json"
+import JSONData from "../../content/test-data-short.json"
 import "../styles/index.scss"
 
 const IndexPage = () => {
@@ -42,7 +42,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="GTA cyclist accidents involving vehicles" />
-      <h1>GTA cyclist accidents involving vehicles</h1>
+      <h1 className="h3 py-3">GTA cyclist accidents involving vehicles</h1>
+      <p><span className="text-muted">Total incidents:</span> {incidentData ? incidentData.length : <p>Data Loading</p>}</p>
       <div className="row">
         <div className="col-sm">
          {incidentData ? <AccidentList accidents={incidentData} /> : <p>Data Loading</p>}
