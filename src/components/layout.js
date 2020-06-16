@@ -6,6 +6,7 @@
  */
 
 import React from "react"
+import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -24,11 +25,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div>
+      <Helmet>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+      </Helmet>
+      <div className="container">
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
