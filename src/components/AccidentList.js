@@ -3,7 +3,7 @@ import React from 'react';
 const AccidentList = (props) => {
   const googleSteertViewUrl = 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=';
   return (
-    <table className="table table-striped table-bordered font-size-sm">
+    <table className="table table-striped table-bordered">
       <thead className="table-dark">
         <tr>
           <th>Year</th>
@@ -31,7 +31,7 @@ const AccidentList = (props) => {
             <p className="mb-0"><span className="text-muted">Alcohol involved:</span> {incident.attributes.ALCOHOL ? incident.attributes.ALCOHOL : 'No'}</p>
           </td>
           <td>
-            <p className="mb-0"><span className="text-muted">Intersection:</span> {incident.attributes.STREET1} {incident.attributes.STREET2 && '& ' + incident.attributes.STREET2} <a href={googleSteertViewUrl+incident.attributes.LATITUDE+','+incident.attributes.LONGITUDE} target="_blank">(Street View)</a></p>
+            <p className="mb-0"><span className="text-muted">Intersection:</span> {incident.attributes.STREET1} {incident.attributes.STREET2 && '& ' + incident.attributes.STREET2} <a href={googleSteertViewUrl+incident.attributes.LATITUDE+','+incident.attributes.LONGITUDE} target="_blank" rel="noreferrer">(Street View)</a></p>
             <p className="mb-0"><span className="text-muted">Accident location:</span> {incident.attributes.ACCLOC ? incident.attributes.ACCLOC : 'N/A'}</p>
             <p className="mb-0"><span className="text-muted">Road class:</span> {incident.attributes.ROAD_CLASS}</p>
           </td>
